@@ -1,0 +1,49 @@
+/* Write your CSS here */
+.maincontainer {
+  background-color: #93c5fd;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subcontainer {
+  border-radius: 10px;
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+  width: 60%;
+}
+.heading {
+  font-size: 25px;
+  color: #000000;
+}
+.dropdowncontainer {
+  display: flex;
+}
+.dropdown {
+  margin-right: 5px;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 15px;
+  color: #000000;
+  font-family: 'Roboto';
+  font-weight: bold;
+  cursor: pointer;
+}
+.dropdownpara {
+  font-size: 15px;
+  color: #000000;
+  font-family: 'Roboto';
+}
+.country {
+  font-size: 20px;
+  color: #323f4b;
+
+  font-family: 'Roboto';
+  font-weight: bold;
+}
