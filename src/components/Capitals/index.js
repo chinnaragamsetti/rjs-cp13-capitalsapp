@@ -33,33 +33,37 @@ const countryAndCapitalsList = [
 
 class Capitals extends Component {
   state = {
-    capitalid: countryAndCapitalsList[0].id,
+    changedoption: countryAndCapitalsList[0].capitalDisplayText,
   }
 
   onchangecapital = event => {
-    this.setState({capitalid: event.target.value})
+    this.setState({changedoption: event.target.value})
   }
 
-  getCountry = capitalid => {
-    //  const {capitalid} = this.state
-    const filteredlsit = countryAndCapitalsList.filter(
-      each => each.id === capitalid,
+  getCountry = () => {
+    const {changedoption} = this.state
+    const filteredlist = countryAndCapitalsList.find(
+      each => each.capitalDisplayText === changedoption,
     )
-    return filteredlsit[0].country
+    console.log(filteredlist.country)
   }
 
   render() {
-    const {capitalid} = this.state
+    // const {changedoption} = this.state
 
-    const changedcountry = this.getCountry(capitalid)
+    const changedcountry = this.getCountry()
     return (
       <div className="maincontainer">
         <div className="subcontainer">
           <h1 className="heading">Countries And Capitals</h1>
           <div className="dropdowncontainer">
-            <select className="dropdown" onChange={this.onchangecapital}>
+            <select className="dropdown">
               {countryAndCapitalsList.map(each => (
-                <option key={each.id} value={each.capitalDisplayText}>
+                <option
+                  key={each.id}
+                  value={each.capitalDisplayText}
+                  onChange={this.onchangecapital}
+                >
                   {each.capitalDisplayText}
                 </option>
               ))}
