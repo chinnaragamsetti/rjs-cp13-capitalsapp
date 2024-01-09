@@ -40,18 +40,18 @@ class Capitals extends Component {
     this.setState({changedoption: event.target.value})
   }
 
-  getCountry = () => {
-    const {changedoption} = this.state
+  getCountry = changedoption => {
+    // const {changedoption} = this.state
     const filteredlist = countryAndCapitalsList.find(
       each => each.capitalDisplayText === changedoption,
     )
-    console.log(filteredlist.country)
+    return filteredlist[0].country
   }
 
   render() {
-    // const {changedoption} = this.state
+    const {changedoption} = this.state
+    const changedcountry = this.getCountry(changedoption)
 
-    const changedcountry = this.getCountry()
     return (
       <div className="maincontainer">
         <div className="subcontainer">
