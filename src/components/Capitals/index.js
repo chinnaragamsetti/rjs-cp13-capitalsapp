@@ -33,24 +33,24 @@ const countryAndCapitalsList = [
 
 class Capitals extends Component {
   state = {
-    changedoption: countryAndCapitalsList[0].capitalDisplayText,
+    changedOption: countryAndCapitalsList[0].id,
   }
 
-  onchangecapital = event => {
-    this.setState({changedoption: event.target.value})
+  onChangecapital = event => {
+    this.setState({changedOption: event.target.value})
   }
 
-  getCountry = changedoption => {
-    // const {changedoption} = this.state
-    const filteredlist = countryAndCapitalsList.find(
-      each => each.capitalDisplayText === changedoption,
+  getCountry = () => {
+    const {changedOption} = this.state
+    const filteredList = countryAndCapitalsList.find(
+      each => each.id === changedOption,
     )
-    return filteredlist[0].country
+    return filteredList.country
   }
 
   render() {
-    const {changedoption} = this.state
-    const changedcountry = this.getCountry(changedoption)
+    // const {changedOption} = this.state
+    const changedCountry = this.getCountry()
 
     return (
       <div className="maincontainer">
@@ -61,8 +61,8 @@ class Capitals extends Component {
               {countryAndCapitalsList.map(each => (
                 <option
                   key={each.id}
-                  value={each.capitalDisplayText}
-                  onChange={this.onchangecapital}
+                  onChange={this.onChangecapital}
+                  value={each.id}
                 >
                   {each.capitalDisplayText}
                 </option>
@@ -70,7 +70,7 @@ class Capitals extends Component {
             </select>
             <p className="dropdownpara"> is capital of which country?</p>
           </div>
-          <p className="country">{changedcountry}</p>
+          <p className="country">{changedCountry}</p>
         </div>
       </div>
     )
