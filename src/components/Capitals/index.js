@@ -37,6 +37,7 @@ class Capitals extends Component {
   }
 
   onChangecapital = event => {
+    //  console.log(event.target.value)
     this.setState({changedOption: event.target.value})
   }
 
@@ -57,13 +58,9 @@ class Capitals extends Component {
         <div className="subcontainer">
           <h1 className="heading">Countries And Capitals</h1>
           <div className="dropdowncontainer">
-            <select className="dropdown">
+            <select onChange={this.onChangecapital} className="dropdown">
               {countryAndCapitalsList.map(each => (
-                <option
-                  key={each.id}
-                  onChange={this.onChangecapital}
-                  value={each.id}
-                >
+                <option key={each.id} value={each.id}>
                   {each.capitalDisplayText}
                 </option>
               ))}
